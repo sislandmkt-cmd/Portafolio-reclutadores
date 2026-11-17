@@ -219,8 +219,11 @@
   .work-note b{ color:var(--gold-light); }
 
   /* CÓDIGO CREATIVO */
-  .cc-feat{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:26px; }
-  .cc-more{ display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:14px; }
+  #codigo-creativo .wrap{ max-width:1120px; }
+  #codigo-creativo .wrap > h2, #codigo-creativo .wrap > p, #codigo-creativo .wrap > .eyebrow{ max-width:872px; margin-left:auto; margin-right:auto; }
+  .cc-feat{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:26px; }
+  .cc-more-title{ font-size:12px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--mute-2); margin:34px auto 12px; max-width:600px; }
+  .cc-more{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; max-width:600px; margin:0 auto; }
   .cc-card{
     background:var(--panel); border:1px solid var(--hair); border-radius:16px; overflow:hidden;
     padding:0; text-align:left; color:inherit; font:inherit; cursor:pointer; display:flex; flex-direction:column;
@@ -247,11 +250,16 @@
   .cc-more .cc-body h3{ font-size:15px; margin-bottom:4px; }
   .cc-more .cc-body p{ font-size:12px; margin:0; }
   .cc-note{ font-size:12px; color:var(--mute-2); margin:18px 0 0; }
+  @media(max-width:960px){ .cc-feat{ grid-template-columns:repeat(2,1fr); } }
   @media(max-width:720px){
     .cc-feat{ display:flex; overflow-x:auto; scroll-snap-type:x mandatory; gap:12px; margin:22px -24px 0; padding:0 24px 6px; scrollbar-width:none; }
     .cc-feat::-webkit-scrollbar{ display:none; }
     .cc-feat .cc-card{ flex:0 0 74%; scroll-snap-align:center; }
-    .cc-more{ grid-template-columns:repeat(2,1fr); }
+    .cc-more{ grid-template-columns:repeat(3,1fr); gap:8px; }
+    .cc-more .cc-body{ padding:8px 8px 10px; }
+    .cc-more .cc-body h3{ font-size:12.5px; }
+    .cc-more .cc-body p{ font-size:10.5px; }
+    .cc-more .cc-play{ width:28px; height:28px; right:6px; bottom:6px; }
   }
   .cc-modal{ position:fixed; inset:0; z-index:1000; background:rgba(4,5,7,0.92); display:none; align-items:center; justify-content:center; padding:16px; }
   .cc-modal.open{ display:flex; }
@@ -523,6 +531,10 @@
     <h2>Publicidad animada con código</h2>
     <p>Piezas promocionales para mi marca donde cada efecto, transición y sonido se genera con programación: partículas, hologramas 3D, proyecciones de luz y música compuesta con código. Concepto y dirección creativa propios, desarrollo asistido por IA.</p>
     <div class="cc-feat">
+      <button type="button" class="cc-card" data-cc-video="cc-la-ciudad.mp4" aria-label="Ver video: La Ciudad">
+        <div class="cc-media"><img src="cc-la-ciudad-portada.jpg" alt="Haz de luz que señala un negocio en la ciudad de noche" loading="lazy"><video src="cc-la-ciudad-preview.mp4" muted loop playsinline preload="none"></video><span class="cc-play"></span></div>
+        <div class="cc-body"><h3>La Ciudad</h3><p>Una toma aérea nocturna se disuelve en miles de luces-partícula; un radar de búsqueda local marca la zona y un haz de luz revela el negocio. Promocional de campañas de Google Ads.</p><div class="tech"><span>Partículas</span><span>Video + código</span><span>Diseño sonoro</span></div></div>
+      </button>
       <button type="button" class="cc-card" data-cc-video="cc-luz-propia.mp4" aria-label="Ver video: Luz propia">
         <div class="cc-media"><img src="cc-luz-propia-portada.jpg" alt="Torre holográfica sobre un plano arquitectónico" loading="lazy"><video src="cc-luz-propia-preview.mp4" muted loop playsinline preload="none"></video><span class="cc-play"></span></div>
         <div class="cc-body"><h3>Luz propia</h3><p>Un plano que se dibuja solo, una torre holográfica y una proyección de luz inspirada en el mapping arquitectónico. Los textos se arman y desarman con partículas.</p><div class="tech"><span>Canvas 3D</span><span>Partículas</span><span>Música generativa</span></div></div>
@@ -536,11 +548,8 @@
         <div class="cc-body"><h3>La mirada</h3><p>Una fotografía convertida en miles de caracteres de código que escanean, se reorganizan y revelan la marca, con música cinematográfica compuesta con código.</p><div class="tech"><span>ASCII art</span><span>Animación</span><span>Audio programático</span></div></div>
       </button>
     </div>
+    <div class="cc-more-title">Más piezas</div>
     <div class="cc-more">
-      <button type="button" class="cc-card" data-cc-video="cc-el-reflejo.mp4" aria-label="Ver video: El reflejo">
-        <div class="cc-media"><img src="cc-el-reflejo-portada.jpg" alt="Reflejo del logo en un iris" loading="lazy"><video src="cc-el-reflejo-preview.mp4" muted loop playsinline preload="none"></video><span class="cc-play"></span></div>
-        <div class="cc-body"><h3>El reflejo</h3><p>Un iris que refleja la marca.</p></div>
-      </button>
       <button type="button" class="cc-card" data-cc-video="cc-universo-en-el-iris.mp4" aria-label="Ver video: Universo en el iris">
         <div class="cc-media"><img src="cc-universo-en-el-iris-portada.jpg" alt="Galaxia de partículas" loading="lazy"><video src="cc-universo-en-el-iris-preview.mp4" muted loop playsinline preload="none"></video><span class="cc-play"></span></div>
         <div class="cc-body"><h3>Universo en el iris</h3><p>Una galaxia de partículas.</p></div>
@@ -554,7 +563,7 @@
         <div class="cc-body"><h3>Order · Ventas</h3><p>Ventas y corte de caja.</p></div>
       </button>
     </div>
-    <p class="cc-note">Formato vertical 9:16 para Reels, TikTok y Shorts. Toca cualquier pieza para verla con sonido.</p>
+    <p class="cc-note" style="text-align:center">Formato vertical 9:16 para Reels, TikTok y Shorts. Toca cualquier pieza para verla con sonido.</p>
   </div>
 </section>
 
